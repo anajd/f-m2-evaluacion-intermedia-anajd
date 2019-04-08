@@ -3,29 +3,43 @@
 const numberInput = document.getElementById("addNumber");
 const btn = document.querySelector(".game__btn");
 const feedBack = document.querySelector(".feedback");
+const feedBack2 = document.querySelector(".feedback").innerHTML;
 const acc = document.querySelector(".acc");
 let cont = 0;
-let winNumber = true;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
-const secretNumber = getRandomNumber(100);
+let secretNumber = getRandomNumber(100);
 console.log(secretNumber);
+
+function reboot() {
+  cont = 0;
+  feedBack.innerHTML = feedBack2;
+  console.clear();
+  secretNumber = getRandomNumber(100);
+  console.log(secretNumber);
+}
 
 const newNumber = () => {
   console.log(numberInput.value);
-  if (cont < 5 && winNumber) {
+  if (cont < 10) {
     const value = parseInt(numberInput.value);
     if (value === secretNumber) {
       feedBack.innerHTML = "¡HAS GANADO CAMPEONA!";
-      winNumber = false;
+      reboot();
     } else if (value < secretNumber) {
       feedBack.innerHTML = "Demasiado bajo";
-      cont++;
+      cont++; // cont = cont + 1
+      if (cont === 10) {
+        reboot();
+      }
     } else {
       feedBack.innerHTML = "Demasiado alto";
       cont++;
+      if (cont === 10) {
+        reboot();
+      }
     }
     acc.innerHTML = cont;
   }
