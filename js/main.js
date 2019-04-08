@@ -3,6 +3,7 @@
 const numberInput = document.getElementById("addNumber");
 const btn = document.querySelector(".game__btn");
 const feedBack = document.querySelector(".feedback");
+const tryNumber = document.querySelector(".try__text");
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
