@@ -3,22 +3,23 @@
 const numberInput = document.getElementById("addNumber");
 const btn = document.querySelector(".game__btn");
 const feedBack = document.querySelector(".feedback");
-const tryNumber = document.querySelector(".try__text");
+const acc = document.querySelector(".acc");
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
-console.log("> " + getRandomNumber(100));
+const secretNumber = getRandomNumber(100);
+console.log(secretNumber);
 
 const newNumber = () => {
   console.log(numberInput.value);
-  const value = numberInput.value;
-  if (value === getRandomNumber) {
-    return (feedBack.innerHTML = "¡HAS GANADO CAMPEONA!");
-  } else if (value < getRandomNumber) {
-    return (feedBack.innerHTML = "Demasiado bajo");
-  } else if (value > getRandomNumber) {
-    return (feedBack.innerHTML = "Demasiado alto");
+  const value = parseInt(numberInput.value);
+  if (value === secretNumber) {
+    feedBack.innerHTML = "¡HAS GANADO CAMPEONA!";
+  } else if (value < secretNumber) {
+    feedBack.innerHTML = "Demasiado bajo";
+  } else {
+    feedBack.innerHTML = "Demasiado alto";
   }
 };
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Evaluación intermedia m2 Ana Jaime</title>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <h1 class="title">Adivina el número</h1>
@@ -13,12 +14,14 @@
       <label for="addNumber" class="game__label"></label>
       <input type="text" id="addNumber" class="game__input" />
       <button class="game__btn">Prueba</button>
-      <p class="feedback">
-        Escribe un número y dale a <span class="prueba">Prueba</span>
-      </p>
+      <div class="container__feedback">
+        <p class="feedback">
+          Escribe un número y dale a <span class="prueba">Prueba</span>
+        </p>
+      </div>
     </div>
-    <div class="try">
-      <p class="try__text">0</p>
+    <div class="acc__container">
+      <p class="acc">0</p>
     </div>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
