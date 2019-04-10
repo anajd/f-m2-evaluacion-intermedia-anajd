@@ -1,6 +1,6 @@
 "use strict";
 
-const numberInput = document.getElementById("addNumber");
+let numberInput = document.getElementById("addNumber");
 const btn = document.querySelector(".game__btn");
 const feedBack = document.querySelector(".feedback");
 const feedBack2 = document.querySelector(".feedback").innerHTML;
@@ -23,11 +23,12 @@ function reboot() {
   console.clear();
   secretNumber = getRandomNumber(100);
   console.log(secretNumber);
+  acc.innerHTML = cont;
 }
 
 const newNumber = () => {
   console.log(numberInput.value);
-  if (cont < 10) {
+  if (cont < 4) {
     const value = parseInt(numberInput.value);
     if (value === secretNumber) {
       paint("¡HAS GANADO CAMPEONA!");
@@ -35,14 +36,16 @@ const newNumber = () => {
     } else if (value < secretNumber) {
       paint("Demasiado bajo");
       cont++;
-      if (cont === 10) {
-        reboot();
+      if (cont === 4) {
+        paint("¡Inténtalo de nuevo!");
+        setTimeout(reboot, 5000);
       }
     } else {
       paint("Demasiado alto");
       cont++;
-      if (cont === 10) {
-        reboot();
+      if (cont === 4) {
+        paint("¡Inténtalo de nuevo!");
+        setTimeout(reboot, 5000);
       }
     }
     acc.innerHTML = cont;
