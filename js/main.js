@@ -13,9 +13,13 @@ function getRandomNumber(max) {
 let secretNumber = getRandomNumber(100);
 console.log(secretNumber);
 
+function paint(text) {
+  feedBack.innerHTML = text;
+}
+
 function reboot() {
   cont = 0;
-  feedBack.innerHTML = feedBack2;
+  paint(feedBack2);
   console.clear();
   secretNumber = getRandomNumber(100);
   console.log(secretNumber);
@@ -26,16 +30,16 @@ const newNumber = () => {
   if (cont < 10) {
     const value = parseInt(numberInput.value);
     if (value === secretNumber) {
-      feedBack.innerHTML = "¡HAS GANADO CAMPEONA!";
-      reboot();
+      paint("¡HAS GANADO CAMPEONA!");
+      setTimeout(reboot, 5000);
     } else if (value < secretNumber) {
-      feedBack.innerHTML = "Demasiado bajo";
-      cont++; // cont = cont + 1
+      paint("Demasiado bajo");
+      cont++;
       if (cont === 10) {
         reboot();
       }
     } else {
-      feedBack.innerHTML = "Demasiado alto";
+      paint("Demasiado alto");
       cont++;
       if (cont === 10) {
         reboot();
